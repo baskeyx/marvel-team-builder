@@ -1,0 +1,59 @@
+.App {
+  padding: 40px;
+  text-align: center;
+}
+
+.Search {
+  width: 100%;
+  min-width: 300px;
+  border: 2px solid #000;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.Character {
+  display: flex;
+  align-items: center;
+  text-align: left;
+  background-color: rgb(196, 198, 199);
+  padding: 10px;
+  justify-content: space-between;
+}
+
+.Character-Info {
+  display: flex;
+  align-items: center;
+}
+
+.Character:nth-child(odd){
+  background: gainsboro;
+}
+
+.Character img {
+  width: 60px;
+  margin: 5px;
+}
+
+.Button {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  border: none;
+  font-size: 20px;
+}
+
+.Team {
+  position: fixed;
+  display: flex;
+  bottom: 0;
+  background: black;
+  width: 100%;
+  left: 0;
+  padding: 10px 5px;
+  justify-content: space-evenly;
+}
+
+.Team img {
+  width: 15%;
+  border-radius: 5px;
+}
