@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import Search from './Components/Search';
 import Fetch from './Components/Fetch';
-import Character from './Components/Character';
-import Team from './Components/Team';
+import Character from './reducer';
 import './App.css';
 
 const App = () => {
@@ -20,25 +19,6 @@ const App = () => {
     }
   };
 
-  const addTeamMember = (id) => {
-    id = Number(id);
-    const tempTeam = team;
-    const findCharacter = characters.find((c) => c.id === id);
-    const { name, thumbnail } = findCharacter;
-    tempTeam.push({
-      name,
-      thumbnail: `${thumbnail.path}.${thumbnail.extension}`,
-      id,
-    });
-    setTeam([...tempTeam]);
-  }
-
-  const removeTeamMember = (id) => {
-    id = Number(id)
-    const tempTeam = team.filter((m) => m.id !== id)
-    setTeam([...tempTeam]);
-  }
-
   return (
     <div className="App">
       <Search searchValue={searchValue} handleChange={handleChange} />
@@ -48,14 +28,10 @@ const App = () => {
             key={c.id}
             id={c.id}
             name={c.name}
-            imgPath={`${c.thumbnail.path}.${c.thumbnail.extension}`}
-            addTeamMember={addTeamMember}
-            removeTeamMember={removeTeamMember}
-            selected={team.find((m) => m.id === c.id)}
+            thumbnail={`${c.thumbnail.path}.${c.thumbnail.extension}`}
           />)
         : null
       }
-      <Team team={team} />
     </div>
   );
 }
