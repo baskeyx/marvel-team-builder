@@ -3,20 +3,20 @@ import Button from './Components/Button';
 
 const initialState = [];
 
-const reducer = (state, action) => {
-  const { id, name, thumbnail } = action.payload;
+export const reducer = (state = [], action) => {
+  if (!action.type) return state;
   switch (action.type) {
     case 'ADD_MEMBER':
       return [
         ...state,
         {
-          id,
-          name,
-          thumbnail,
+          id: action.payload.id,
+          name: action.payload.name,
+          thumbnail: action.payload.thumbnail,
         }
       ]
     case 'REMOVE_MEMBER':
-      return state.filter((m) => m.id !== id)
+      return state.filter((m) => m.id !== action.payload.id)
     default:
       return state;
   }
@@ -32,7 +32,7 @@ const Character = ({ id, name, thumbnail }) => {
       </div>
       <div>
         { state.find((m) => m.id === id) ?
-          <Button onClick={() => dispatch({ type: 'REMOVE_MEMBER', payload: { id, name, thumbnail  } })}>-</Button> :
+          <Button onClick={() => dispatch({ type: 'REMOVE_MEMBER', payload: { id  } })}>-</Button> :
           <Button onClick={() => dispatch({ type: 'ADD_MEMBER', payload: { id, name, thumbnail  } })}>+</Button>
         }
       </div>
