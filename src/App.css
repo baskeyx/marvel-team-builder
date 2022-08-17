@@ -47,13 +47,17 @@
   display: flex;
   bottom: 0;
   background: black;
-  width: 100%;
+  width: calc(100% - 12px);
   left: 0;
-  padding: 10px 5px;
-  justify-content: space-evenly;
+  flex-wrap: wrap;
+  padding: 6px;
+}
+
+.Team .Member {
+  width: 25%;
 }
 
 .Team img {
-  width: 15%;
-  border-radius: 5px;
+  width: calc(100% - 20px);
+  margin: 10px;
 }
