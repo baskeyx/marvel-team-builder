@@ -8,8 +8,8 @@ const Character = ({ id, name, imgPath, addTeamMember, removeTeamMember, selecte
     </div>
     <div>
       { selected ? 
-        <Button onClick={(e) => removeTeamMember(e.target.dataset.id)} data-id={id}>-</Button> :
-        <Button onClick={(e) => addTeamMember(e.target.dataset.id)} data-id={id}>+</Button>
+        <Button onClick={() => removeTeamMember(id)}>-</Button> :
+        <Button onClick={() => addTeamMember(id)}>+</Button>
       }
     </div>
   </div>
